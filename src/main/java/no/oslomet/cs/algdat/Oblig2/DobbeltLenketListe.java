@@ -53,6 +53,17 @@ public class DobbeltLenketListe<T> implements Liste<T> {
                     break;
                 }
             }
+            hale = hode;
+            if(hode != null){
+                iPos++;
+                for(;iPos < a.length; iPos++){
+                    if(a[iPos] != null){
+                        hale.neste = new Node<>(a[iPos], hale, null);
+                        hale = hale.neste;
+                        antall++;
+                    }
+                }
+            }
         }
     }
 
