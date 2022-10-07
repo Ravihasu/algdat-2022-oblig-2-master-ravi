@@ -2,7 +2,7 @@
 
 Denne oppgaven er en innlevering i Algoritmer og Datastrukturer. 
 Oppgaven er levert av følgende studenter:
-* Navn Navnesen, S123456, s123456@oslomet.no
+* Ravi Singh Gill, s364592, s364592@oslomet.no
 * ...
 
 # Arbeidsfordeling
@@ -15,6 +15,9 @@ I oppgaven har vi hatt følgende arbeidsfordeling:
 
 # Oppgavebeskrivelse
 
-I oppgave 1 så gikk vi frem ved å ...
+I oppgave 1 så gikk vi frem ved å først starte med å bruke antall og tom til å returnere verdier. Jeg begynte da på 
+dobbeltlenketliste metoden som tok en del å forstå. Jeg startet av med feilmeldinger om arrayet ikke funker med det vi
+ønsker så startet jeg med selve algoritmen. Hadde problemer med å vite hvorfor oppgaven testet feil men merket at jeg 
+ikke hadde fullført delen av dobbeltlenketliste() konstruktøren. 
 
 I oppgave 2 så brukte vi en ... til å ...
