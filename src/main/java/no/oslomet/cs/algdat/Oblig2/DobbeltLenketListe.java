@@ -43,6 +43,15 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     public DobbeltLenketListe(T[] a) {
         Objects.requireNonNull(a);
+
+        int iPos = 0;
+        for (;iPos < a.length; iPos++){
+            if(a[iPos] != null){
+                hode = new Node<>(a[iPos]);
+                antall++;
+                break;
+            }
+        }
     }
 
     public Liste<T> subliste(int fra, int til) {
