@@ -97,7 +97,19 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     public Liste<T> subliste(int fra, int til) {
-        throw new UnsupportedOperationException();
+        int tell = til - fra;
+        if(tell < 1) return new DobbeltLenketListe<>();
+
+        Node<T> brukes = finnNode(fra);
+
+        DobbeltLenketListe<T> subliste = new DobbeltLenketListe<>();
+
+        while(tell > 0) {
+            subliste.leggInn(brukes.verdi);
+            brukes = brukes.neste;
+            tell--;
+        }
+        return subliste;
     }
 
     @Override
