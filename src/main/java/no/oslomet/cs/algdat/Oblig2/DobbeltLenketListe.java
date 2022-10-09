@@ -139,6 +139,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         }
         while (brukes!=null){
             bygger.append(',');
+            bygger.append(' ');
             bygger.append(brukes.verdi);
             brukes=brukes.neste;
         }
