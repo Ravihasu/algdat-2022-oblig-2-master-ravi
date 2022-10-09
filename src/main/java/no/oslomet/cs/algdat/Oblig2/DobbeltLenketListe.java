@@ -142,7 +142,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public T hent(int indeks) {
-        throw new UnsupportedOperationException();
+        return finnNode(indeks).verdi;
     }
 
     @Override
