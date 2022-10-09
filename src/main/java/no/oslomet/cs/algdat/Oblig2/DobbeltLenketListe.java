@@ -97,6 +97,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     public Liste<T> subliste(int fra, int til) {
+        fratilKontroll(antall, fra, til);
         int tell = til - fra;
         if(tell < 1) return new DobbeltLenketListe<>();
 
