@@ -151,7 +151,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         Node<T> brukes=hode;
         StringBuilder bygger = new StringBuilder();
         bygger.append('[');
-        if (bygger!=null){
+        if (brukes!=null){
             bygger.append(brukes.verdi);
             brukes = brukes.neste;
         }
@@ -169,7 +169,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         Node<T> brukes=hale;
         StringBuilder bygger = new StringBuilder();
         bygger.append('[');
-        if (bygger!=null){
+        if (brukes!=null){
             bygger.append(brukes.verdi);
             brukes = brukes.forrige;
         }
