@@ -40,6 +40,22 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     private int endringer;         // antall endringer i listen
 
     private Node<T> finnNode(int indeks){
+        if(indeks < (antall / 2)){
+            Node<T> brukes = hode;
+            for(int  i = 0; i < indeks; i++){
+                brukes = brukes.neste;
+            }
+            return brukes;
+        }
+
+
+        else {
+            Node<T> brukes = hale;
+            for(int i = antall - 1; i > indeks; i--){
+                brukes = brukes.forrige;
+            }
+            return brukes;
+        }
 
 
     }
