@@ -90,18 +90,20 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         requireNonNull(verdi);
 
-        if (hode == hale) {
-            hode = new Node<>(verdi,hale,null);
+        if (hode == null) {
+            hode = new Node<>(verdi);
             hale=hode;
             antall+=1;
+            endringer++;
 
         }
         else {
             hale.neste=new Node<>(verdi,hale,null);
             hale=hale.neste;
             antall++;
+            endringer++;
         }
-        endringer++;
+
         return true;
     }
 
