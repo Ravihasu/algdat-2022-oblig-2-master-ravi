@@ -112,6 +112,21 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         return subliste;
     }
 
+    public static void fratilKontroll(int lengde, int fra, int til)
+    {
+        if (fra < 0)
+            throw new IndexOutOfBoundsException
+                    (fra + ") er negativt.");
+
+        if (til > lengde)
+            throw new IndexOutOfBoundsException
+                    (til + ") er storre enn legnden.");
+
+        if (fra > til)
+            throw new IllegalArgumentException
+                    ("fra er storre en til");
+    }
+
     @Override
     public int antall() {
         return antall;
