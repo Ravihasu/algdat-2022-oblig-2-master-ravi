@@ -8,6 +8,8 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Objects;
 
+import static java.util.Objects.requireNonNull;
+
 
 public class DobbeltLenketListe<T> implements Liste<T> {
 
@@ -44,7 +46,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     public DobbeltLenketListe(T[] a) {
-        Objects.requireNonNull(a);
+        requireNonNull(a);
 
         if(a.length > 0) {
             int iPos = 0;
@@ -85,8 +87,24 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public boolean leggInn(T verdi) {
-        throw new UnsupportedOperationException();
+
+        requireNonNull(verdi);
+
+        if (hode == hale) {
+            hode = new Node<>(verdi,hale,null);
+            hale=hode;
+            antall+=1;
+
+        }
+        else {
+            hale.neste=new Node<>(verdi,hale,null);
+            hale=hale.neste;
+            antall++;
+        }
+        endringer++;
+        return true;
     }
+
 
     @Override
     public void leggInn(int indeks, T verdi) {
@@ -148,7 +166,21 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     public String omvendtString() {
-        throw new UnsupportedOperationException();
+        Node<T> brukes=hale;
+        StringBuilder bygger = new StringBuilder();
+        bygger.append('[');
+        if (bygger!=null){
+            bygger.append(brukes.verdi);
+            brukes = brukes.forrige;
+        }
+        while (brukes!=null){
+            bygger.append(',');
+            bygger.append(' ');
+            bygger.append(brukes.verdi);
+            brukes=brukes.forrige;
+        }
+        bygger.append(']');
+        return bygger.toString();
     }
 
     @Override
