@@ -228,28 +228,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         for (Node<T> ibruk = hode; ibruk != null; ibruk = ibruk.neste) {
             if (verdi.equals(ibruk.verdi)) {
-                if (ibruk == hode) {
-                    if (hode.neste == null) {
-                        hode = null;
-                        hale = null;
-                    } else {
-                        hode = hode.neste;
-                        hode.forrige = null;
-                    }
-                }
-
-                if (ibruk == hale) {
-                    if (hale.forrige == null) {
-                        hode = null;
-                        hale = null;
-                    } else {
-                        hale = hale.forrige;
-                        hale.neste = null;
-                    }
-                } else {
-                    ibruk.forrige.neste = ibruk.neste;
-                    ibruk.neste.forrige = ibruk.forrige;
-                }
+                fjernhjelp(ibruk);
                 antall--;
                 endringer++;
                 return true;
