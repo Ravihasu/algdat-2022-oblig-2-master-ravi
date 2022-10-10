@@ -4,6 +4,7 @@ package no.oslomet.cs.algdat.Oblig2;
 ////////////////// class DobbeltLenketListe //////////////////////////////
 
 
+import javax.swing.*;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Objects;
@@ -227,7 +228,33 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public boolean fjern(T verdi) {
-        throw new UnsupportedOperationException();
+        if (verdi==null){return false;}
+
+        for (Node<T> ibruk=hode; ibruk!=null; ibruk=ibruk.neste){
+            if (verdi.equals(ibruk.verdi)){
+                if (ibruk==hode){
+                    if (hode.neste==null){
+                        hode=null;
+                        hale=null;
+                    } else {hode=hode.neste; hode.forrige=null;}
+                }
+
+               if (ibruk==hale){
+                   if (hale.forrige==null){
+                       hode=null;
+                       hale=null;
+                   } else {hale=hale.forrige; hale.neste=null;}
+               }
+               else {
+                   ibruk.forrige.neste=ibruk.neste;
+                   ibruk.neste.forrige=ibruk.forrige;
+               }
+               antall--;
+               endringer++;
+               return true;
+            }
+        }
+        return false;
     }
 
     @Override
