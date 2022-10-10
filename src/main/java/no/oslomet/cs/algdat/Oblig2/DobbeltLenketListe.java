@@ -180,7 +180,13 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             antall++;
             endringer++;
         }
-
+        else {
+            Node<T> gammel = finnNode(indeks);
+            Node<T> ny= new Node<>(verdi,gammel,gammel.forrige);
+            gammel.forrige.neste=ny;
+            gammel.forrige=ny;
+            antall++;
+            endringer++;
 
         }
     }
