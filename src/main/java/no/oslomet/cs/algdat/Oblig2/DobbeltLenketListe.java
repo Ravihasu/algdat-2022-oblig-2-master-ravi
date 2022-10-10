@@ -175,7 +175,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             endringer++;
         }
         else if (indeks==antall){
-            hale.neste=new Node<>(verdi,null,hode);
+            hale.neste=new Node<>(verdi,hale,null);
             hale=hale.neste;
             antall++;
             endringer++;
