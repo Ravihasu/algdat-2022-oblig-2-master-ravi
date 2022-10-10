@@ -355,7 +355,13 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         }
 
         private DobbeltLenketListeIterator(int indeks) {
-            throw new UnsupportedOperationException();
+        this();
+        while (denne!=null && indeks>0){
+            denne=denne.neste;
+            indeks--;
+        }
+
+
         }
 
         @Override
