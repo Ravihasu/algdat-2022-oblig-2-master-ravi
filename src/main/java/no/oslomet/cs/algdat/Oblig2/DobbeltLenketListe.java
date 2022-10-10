@@ -163,7 +163,26 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public void leggInn(int indeks, T verdi) {
-        throw new UnsupportedOperationException();
+
+        requireNonNull(verdi);
+        indeksKontroll(indeks,true);
+
+        if (indeks==0 && antall==0){leggInn(verdi);}
+        else if (indeks==0){
+            hode.forrige=new Node<>(verdi,null,hode);
+            hode = hode.forrige;
+            antall++;
+            endringer++;
+        }
+        else if (indeks==antall){
+            hale.neste=new Node<>(verdi,null,hode);
+            hale=hale.neste;
+            antall++;
+            endringer++;
+        }
+
+
+        }
     }
 
     @Override
